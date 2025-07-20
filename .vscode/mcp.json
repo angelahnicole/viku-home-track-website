@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"my-mcp-server-983913ce": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@mui/mcp@latest"
+			]
+		}
+	},
+	"inputs": []
+}

@@ -1,22 +1,26 @@
 {
-	"folders": [
-		{
-			"name": "SRC",
-			"path": "../src"
-		},
-		{
-			"name": "ROOT",
-			"path": "../",
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"*.css": "tailwindcss",
-			"*.scss": "tailwindcss"
-		},
-		"files.exclude": {
-			"src": true
-		},
-		"tailwindCSS.experimental.classRegex": [["className\\s*:\\s*['\"]([^'\"]*)['\"]"]]
-	}
+  "folders": [
+    {
+      "name": "SRC",
+      "path": "../src",
+    },
+    {
+      "name": "ROOT",
+      "path": "../",
+    },
+  ],
+  "settings": {
+    "files.associations": {
+      "*.css": "tailwindcss",
+      "*.scss": "tailwindcss",
+    },
+    "files.exclude": {
+      "src": true,
+    },
+    "tailwindCSS.experimental.classRegex": [
+      ["className\\s*:\\s*['\"]([^'\"]*)['\"]"],
+    ],
+    "chat.mcp.enabled": true,
+    "chat.mcp.discovery.enabled": true,
+  },
 }
