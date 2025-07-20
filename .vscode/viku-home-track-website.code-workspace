@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "SRC",
+			"path": "../src"
+		},
+		{
+			"name": "ROOT",
+			"path": "../",
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.css": "tailwindcss",
+			"*.scss": "tailwindcss"
+		},
+		"files.exclude": {
+			"src": true
+		},
+	}
+}
