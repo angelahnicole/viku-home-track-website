@@ -19,6 +19,17 @@ interface VikuAppProps {
 export default function VikuApp({ children }: VikuAppProps): JSX.Element {
     const { isDarkMode, toggleColorMode } = useVikuColorMode();
 
+    // Ensure the component is mounted before rendering to avoid hydration issues and flash of
+    // unstyled content (FOUC).
+    // See: https://nextjs.org/docs/app/building-your-application/rendering/hydration
+    const [mounted, setMounted] = React.useState(false);
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+    if (!mounted) {
+        return <></>;
+    }
+
     return (
         <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
             <AppBar position="static">
