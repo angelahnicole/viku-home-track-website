@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import CircularProgress from "@mui/material/CircularProgress";
+import { Alert, Button, Box, CircularProgress, Paper, Typography } from "@mui/material";
 import clsx from "clsx";
 
 export default function VikunjaInfoPage() {
@@ -27,23 +25,18 @@ export default function VikunjaInfoPage() {
     };
 
     return (
-        <main
+        <Box
             className={clsx(
                 "flex",
                 "min-h-screen",
                 "flex-col",
                 "items-center",
                 "justify-center",
-                "bg-gray-50",
                 "p-8",
             )}
         >
-            <div
-                className={clsx("w-full", "max-w-xl", "rounded-lg", "bg-white", "p-8", "shadow-md")}
-            >
-                <h1 className={clsx("mb-6", "text-3xl", "font-bold", "text-blue-700")}>
-                    Vikunja Info
-                </h1>
+            <Paper className={clsx("w-full", "max-w-xl", "rounded-lg", "p-8", "shadow-md")}>
+                <Typography variant="h3">Vikunja Info</Typography>
                 <Button
                     variant="contained"
                     color="primary"
@@ -77,7 +70,7 @@ export default function VikunjaInfoPage() {
                         {JSON.stringify(info, null, 2)}
                     </pre>
                 )}
-            </div>
-        </main>
+            </Paper>
+        </Box>
     );
 }

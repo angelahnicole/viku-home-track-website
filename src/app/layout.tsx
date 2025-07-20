@@ -1,11 +1,10 @@
 import "@/app/globals.css";
-import theme from "@/lib/theme";
 
 import type { Metadata } from "next";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { JSX } from "react";
 import { Roboto } from "next/font/google";
-import { ThemeProvider } from "@mui/material/styles";
+import VikuTheme from "@/components/viku-theme";
+import VikuApp from "@/components/viku-app";
 
 // ================================================================================================
 
@@ -32,9 +31,9 @@ export default function RootLayout(props: RootLayoutProps): JSX.Element {
     return (
         <html lang="en" className={roboto.variable} suppressHydrationWarning>
             <body>
-                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-                    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-                </AppRouterCacheProvider>
+                <VikuTheme>
+                    <VikuApp>{children}</VikuApp>
+                </VikuTheme>
             </body>
         </html>
     );
