@@ -107,6 +107,9 @@ function getDarkPalette() {
  * Custom hook to get the current MUI theme based on color mode.
  * Uses Solarized palette and font settings.
  *
+ * NOTE: This hook retrieves the current color mode from the VikuColorMode context, and will error
+ * if used outside of the VikuColorModeProvider.
+ *
  * @returns The current MUI theme object.
  */
 export default function useTheme(): Theme {

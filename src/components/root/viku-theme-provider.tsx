@@ -1,4 +1,4 @@
-import useTheme from "@/lib/theme";
+import useTheme from "@/lib/mui/theme";
 
 import { JSX } from "react";
 import { ThemeProvider } from "@mui/material/styles";
@@ -14,7 +14,7 @@ interface VikuThemeProviderProps {
 
 /**
  * Renders the MUI ThemeProvider with the current theme. This is in a separate component (and not
- * directly in VikuProviders) so it can grab the color mode context.
+ * directly in VikuProviders) so it can grab the color mode context in useTheme().
  *
  * @param props See VikuThemeProviderProps
  */
