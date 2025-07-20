@@ -8,6 +8,7 @@ const config = {
     singleQuote: false,
     printWidth: 100,
     tabWidth: 4,
+    bracketSameLine: false,
     plugins: ["prettier-plugin-tailwindcss"],
 };
 

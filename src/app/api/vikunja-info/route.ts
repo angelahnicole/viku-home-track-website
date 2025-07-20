@@ -6,7 +6,9 @@ export async function GET() {
     try {
         // Instantiate the client with the Vikunja API base URL
         const api = new ServiceApi(
-            new Configuration({ basePath: "https://vikunja.polymorphix.org/api/v1" }),
+            new Configuration({
+                basePath: "https://vikunja.polymorphix.org/api/v1",
+            }),
         );
         const info = await api.infoGet();
         return NextResponse.json(info);
