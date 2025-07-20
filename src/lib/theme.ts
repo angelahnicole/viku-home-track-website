@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import React from "react";
+import { useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material";
 import { Theme } from "@mui/material/styles";
+import { useColorMode } from "@/components/root/color-mode-provider";
 
 // ================================================================================================
 
@@ -93,53 +95,38 @@ function getDarkPalette() {
 
 // ------------------------------------------------------------------------------------------------
 
-export type ThemeMode = "light" | "dark";
+export default function useTheme(): Theme {
+    const { colorMode } = useColorMode();
+    const isDarkMode = colorMode === "dark";
 
-export default function useTheme(): {
-    theme: Theme;
-    mode: ThemeMode;
-    setMode: React.Dispatch<React.SetStateAction<ThemeMode>>;
-} {
-    const [mode, setMode] = useState<ThemeMode>("light");
-    const isDarkMode = mode === "dark";
-
-    const palette = useMemo(() => {
+    const palette = React.useMemo(() => {
         return isDarkMode ? getDarkPalette() : getLightPalette();
     }, [isDarkMode]);
 
-    const theme = useMemo(
-        () =>
-            createTheme({
-                palette: {
-                    mode,
-                    ...palette,
+    const theme = React.useMemo(() => {
+        return createTheme({
+            palette: {
+                mode: colorMode,
+                ...palette,
+            },
+            typography: {
+                fontFamily: "var(--font-roboto)",
+                h5: {
+                    color: isDarkMode ? solarized.base1 : solarized.base01,
                 },
-                typography: {
-                    fontFamily: "var(--font-roboto)",
-                    h5: {
-                        color: isDarkMode ? solarized.base1 : solarized.base01,
-                    },
-                },
-                components: {
-                    // MuiPaper: {
-                    //     styleOverrides: {
-                    //         root: {
-                    //             backgroundImage: "none", // Disables MUI's default gradient
-                    //         },
-                    //     },
-                    // },
-                    MuiAppBar: {
-                        styleOverrides: {
-                            root: {
-                                backgroundColor: isDarkMode ? solarized.base02 : solarized.base2,
-                                color: isDarkMode ? solarized.base1 : solarized.base01,
-                            },
+            },
+            components: {
+                MuiAppBar: {
+                    styleOverrides: {
+                        root: {
+                            backgroundColor: isDarkMode ? solarized.base02 : solarized.base2,
+                            color: isDarkMode ? solarized.base1 : solarized.base01,
                         },
                     },
                 },
-            }),
-        [mode, isDarkMode, palette],
-    );
+            },
+        });
+    }, [colorMode, isDarkMode, palette]);
 
-    return { theme, mode, setMode };
+    return theme;
 }

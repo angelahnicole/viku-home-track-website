@@ -1,10 +1,12 @@
 import "@/app/globals.css";
 
+import VikuProviders from "@/components/root/providers";
+import App from "@/components/root/app";
+
 import type { Metadata } from "next";
+import { CssBaseline } from "@mui/material";
 import { JSX } from "react";
 import { Roboto } from "next/font/google";
-import VikuTheme from "@/components/viku-theme";
-import VikuApp from "@/components/viku-app";
 
 // ================================================================================================
 
@@ -31,9 +33,10 @@ export default function RootLayout(props: RootLayoutProps): JSX.Element {
     return (
         <html lang="en" className={roboto.variable} suppressHydrationWarning>
             <body>
-                <VikuTheme>
-                    <VikuApp>{children}</VikuApp>
-                </VikuTheme>
+                <VikuProviders>
+                    <CssBaseline />
+                    <App>{children}</App>
+                </VikuProviders>
             </body>
         </html>
     );
