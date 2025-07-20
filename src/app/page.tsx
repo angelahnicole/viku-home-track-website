@@ -6,12 +6,22 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Image from "next/image";
 
+// ================================================================================================
+
 const CAT_API = "https://api.thecatapi.com/v1/images/search?mime_types=gif";
 
+/**
+ * The main page of the application. Displays a random funny cat gif and allows users to fetch a new one.
+ */
 export default function Home() {
     const [catGif, setCatGif] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
+    /**
+     * Fetches a random cat gif from the Cat API and updates state.
+     *
+     * @returns {Promise<void>} Resolves when the gif is fetched and state is updated.
+     */
     const fetchCatGif = async () => {
         setLoading(true);
         try {

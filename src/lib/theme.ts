@@ -28,7 +28,11 @@ const solarized = {
     green: "#859900",
 };
 
-// Solarized Light Theme
+/**
+ * Returns the Solarized color palette for light mode.
+ *
+ * @returns The palette object for light mode.
+ */
 function getLightPalette() {
     return {
         primary: {
@@ -60,7 +64,11 @@ function getLightPalette() {
     };
 }
 
-// Solarized Dark Theme
+/**
+ * Returns the Solarized color palette for dark mode.
+ *
+ * @returns The palette object for dark mode.
+ */
 function getDarkPalette() {
     return {
         primary: {
@@ -95,6 +103,12 @@ function getDarkPalette() {
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * Custom hook to get the current MUI theme based on color mode.
+ * Uses Solarized palette and font settings.
+ *
+ * @returns The current MUI theme object.
+ */
 export default function useTheme(): Theme {
     const { colorMode } = useVikuColorMode();
     const isDarkMode = colorMode === "dark";

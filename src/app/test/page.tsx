@@ -4,11 +4,15 @@ import { useState } from "react";
 import { Alert, Button, Box, CircularProgress, Paper, Typography } from "@mui/material";
 import clsx from "clsx";
 
+/**
+ * The test page for displaying Vikunja info. Fetches and displays info from the Vikunja API.
+ */
 export default function VikunjaInfoPage() {
     const [info, setInfo] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<null | string>(null);
 
+    // Fetches Vikunja info from the API and updates state.
     const fetchInfo = async () => {
         setLoading(true);
         setError(null);

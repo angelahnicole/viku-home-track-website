@@ -9,9 +9,18 @@ import { JSX } from "react";
 // ================================================================================================
 
 interface VikuProvidersProps {
+    /**
+     * The child nodes to render within the provider tree.
+     */
     children?: React.ReactNode;
 }
 
+/**
+ * Provides color mode and theme context to the application.
+ * Wraps children with color mode and theme providers.
+ *
+ * @param props See VikuProvidersProps
+ */
 export default function VikuProviders({ children }: VikuProvidersProps): JSX.Element {
     return (
         <VikuColorModeProvider>

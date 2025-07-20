@@ -25,9 +25,17 @@ const roboto = Roboto({
 // ------------------------------------------------------------------------------------------------
 
 interface RootLayoutProps {
+    /**
+     * The child nodes to render within the layout.
+     */
     children: React.ReactNode;
 }
 
+/**
+ * The root layout for the application. Wraps all pages with global providers and styles.
+ *
+ * @param props See RootLayoutProps
+ */
 export default function RootLayout(props: RootLayoutProps): JSX.Element {
     const { children } = props;
     return (

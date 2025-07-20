@@ -13,9 +13,17 @@ import React, { JSX } from "react";
 // ================================================================================================
 
 interface VikuAppProps {
+    /**
+     * The child nodes to render within the app shell.
+     */
     children: React.ReactNode;
 }
 
+/**
+ * The main app shell component. Provides the app bar, color mode toggle, and layout for children.
+ *
+ * @param props See VikuAppProps
+ */
 export default function VikuApp({ children }: VikuAppProps): JSX.Element {
     const { isDarkMode, toggleColorMode } = useVikuColorMode();
 
