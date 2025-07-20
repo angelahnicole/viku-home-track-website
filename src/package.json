@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "next lint --fix",
-    "prepare": "husky"
+    "lint:fix": "next lint --fix",
+    "prepare": "cd .. && husky ./src/.husky"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",

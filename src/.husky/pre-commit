@@ -1,1 +1,1 @@
-npm run format
+cd src && npm run lint:fix
