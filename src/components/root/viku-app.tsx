@@ -1,6 +1,6 @@
 "use client";
 
-import { useColorMode } from "@/components/root/color-mode-provider";
+import { useVikuColorMode } from "@/components/root/viku-color-mode-provider";
 
 import { Switch, AppBar, Toolbar, Typography, Box } from "@mui/material";
 import {
@@ -16,16 +16,15 @@ interface VikuAppProps {
     children: React.ReactNode;
 }
 
-export default function App({ children }: VikuAppProps): JSX.Element {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const isDarkMode = colorMode === "dark";
+export default function VikuApp({ children }: VikuAppProps): JSX.Element {
+    const { isDarkMode, toggleColorMode } = useVikuColorMode();
 
     return (
         <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Viku Home Track
+                        VikuHomeTrack
                     </Typography>
                     <Switch checked={isDarkMode} onChange={toggleColorMode} />
                     {isDarkMode ? <Brightness4Icon /> : <Brightness7Icon />}

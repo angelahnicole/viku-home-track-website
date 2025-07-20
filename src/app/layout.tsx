@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 
-import VikuProviders from "@/components/root/providers";
-import App from "@/components/root/app";
+import VikuProviders from "@/components/root/viku-providers";
+import VikuApp from "@/components/root/viku-app";
 
 import type { Metadata } from "next";
 import { CssBaseline } from "@mui/material";
@@ -35,7 +35,7 @@ export default function RootLayout(props: RootLayoutProps): JSX.Element {
             <body>
                 <VikuProviders>
                     <CssBaseline />
-                    <App>{children}</App>
+                    <VikuApp>{children}</VikuApp>
                 </VikuProviders>
             </body>
         </html>

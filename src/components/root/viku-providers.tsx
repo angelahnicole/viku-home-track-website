@@ -1,6 +1,6 @@
 "use client";
 
-import { ColorModeProvider } from "@/components/root/color-mode-provider";
+import { VikuColorModeProvider } from "@/components/root/viku-color-mode-provider";
 import VikuThemeProvider from "@/components/root/viku-theme-provider";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
@@ -14,10 +14,10 @@ interface VikuProvidersProps {
 
 export default function VikuProviders({ children }: VikuProvidersProps): JSX.Element {
     return (
-        <ColorModeProvider>
+        <VikuColorModeProvider>
             <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                 <VikuThemeProvider>{children}</VikuThemeProvider>
             </AppRouterCacheProvider>
-        </ColorModeProvider>
+        </VikuColorModeProvider>
     );
 }

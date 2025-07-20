@@ -1,10 +1,10 @@
 "use client";
 
+import { useVikuColorMode } from "@/components/root/viku-color-mode-provider";
+
 import React from "react";
-import { useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material";
 import { Theme } from "@mui/material/styles";
-import { useColorMode } from "@/components/root/color-mode-provider";
 
 // ================================================================================================
 
@@ -96,7 +96,7 @@ function getDarkPalette() {
 // ------------------------------------------------------------------------------------------------
 
 export default function useTheme(): Theme {
-    const { colorMode } = useColorMode();
+    const { colorMode } = useVikuColorMode();
     const isDarkMode = colorMode === "dark";
 
     const palette = React.useMemo(() => {
