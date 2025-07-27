@@ -1,6 +1,6 @@
 import "server-only";
 
-import { TaskApi, ServiceApi, Configuration } from "@/lib/gen/vikunja-client";
+import { TaskApi, ServiceApi, Configuration } from "@/lib/vikunja/gen-client";
 
 import invariant from "ts-invariant";
 
