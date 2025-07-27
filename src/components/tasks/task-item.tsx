@@ -1,6 +1,6 @@
 "use client";
 
-import { ModelsTask as Task } from "@/lib/vikunja/gen-client";
+import { ModelsTask } from "@/lib/vikunja/gen-client";
 
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -47,7 +47,7 @@ function getPriorityColor(priority: number | string | undefined) {
 // ------------------------------------------------------------------------------------------------
 
 interface TaskItemProps {
-    task: Task;
+    task: ModelsTask;
 }
 
 export default function TaskItem({ task }: TaskItemProps) {
