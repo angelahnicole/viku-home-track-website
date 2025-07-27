@@ -1,6 +1,6 @@
 "use client";
 
-import { ModelsTask } from "@/lib/vikunja/gen-client";
+import VikuTask from "@/lib/vikunja/viku-task";
 
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -9,45 +9,8 @@ import invariant from "ts-invariant";
 
 // ================================================================================================
 
-const priorityColors = {
-    "DO NOW": "error",
-    urgent: "error",
-    high: "warning",
-    medium: "info",
-    low: "primary",
-    unset: "default",
-} as const;
-
-function getPriorityString(priority: number | string | undefined): string {
-    if (typeof priority === "number") {
-        switch (priority) {
-            case 1:
-                return "DO NOW"; // DO NOW
-            case 2:
-                return "urgent"; // urgent
-            case 3:
-                return "high"; // high
-            case 4:
-                return "medium"; // medium
-            case 5:
-                return "low"; // low
-            default:
-                return "default"; // unset or unknown
-        }
-    }
-
-    return "default"; // Fallback for unknown priority strings
-}
-
-function getPriorityColor(priority: number | string | undefined) {
-    const priorityString = getPriorityString(priority);
-    return priorityColors[priorityString.toLowerCase() as keyof typeof priorityColors] || "default";
-}
-
-// ------------------------------------------------------------------------------------------------
-
 interface TaskItemProps {
-    task: ModelsTask;
+    task: VikuTask;
 }
 
 export default function TaskItem({ task }: TaskItemProps) {
@@ -78,7 +41,7 @@ export default function TaskItem({ task }: TaskItemProps) {
             {task.priority && (
                 <Chip
                     label={task.priority}
-                    color={getPriorityColor(task.priority)}
+                    color={task.priorityColor}
                     size="small"
                     className="mt-2"
                 />

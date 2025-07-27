@@ -1,6 +1,6 @@
 "use client";
 
-import type { ModelsTask } from "@/lib/vikunja/gen-client";
+import VikuTask from "@/lib/vikunja/viku-task";
 import TaskItem from "@/components/tasks/task-item";
 
 import dayjs from "dayjs";
@@ -12,7 +12,7 @@ import { useDroppable } from "@dnd-kit/core";
 
 interface DayBucketProps {
     day: dayjs.Dayjs;
-    tasks: ModelsTask[];
+    tasks: VikuTask[];
 }
 
 export default function DayBucket({ day, tasks }: DayBucketProps) {
