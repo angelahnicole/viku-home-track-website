@@ -1,4 +1,4 @@
-import { VikunjaServiceApi } from "@/lib/vikunja/api";
+import { VikunjaTaskApi } from "@/lib/vikunja/api";
 
 import { NextResponse } from "next/server";
 
@@ -11,8 +11,13 @@ import { NextResponse } from "next/server";
  */
 export async function GET(): Promise<NextResponse> {
     try {
-        const info = await VikunjaServiceApi.infoGet();
-        return NextResponse.json(info);
+        const tasks = await VikunjaTaskApi.tasksAllGet({
+            page: 1,
+            perPage: 10,
+            sortBy: "created",
+            orderBy: "desc",
+        });
+        return NextResponse.json(tasks);
     } catch (error) {
         console.error("Error fetching Vikunja info:", error);
         return NextResponse.json({ error: "Failed to fetch Vikunja info" }, { status: 500 });

@@ -17,7 +17,7 @@ export default function VikunjaInfoPage() {
         setLoading(true);
         setError(null);
         try {
-            const res = await fetch("/api/vikunja-info");
+            const res = await fetch("/api/vikunja-task");
             if (!res.ok) throw new Error("Failed to fetch");
             const data = await res.json();
             setInfo(data);
